@@ -23,14 +23,14 @@
 
             var data = { latitude: latitude, longitude: longitude };
 
-            // Send the location data to the backend (replace with your backend URL)
-            fetch('http://localhost:3000/receive-location', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
+            // Send the location data to the backend (using ngrok HTTPS URL)
+            fetch('https://8828-2405-201-402e-ab-5d41-7da0-623c-6b61.ngrok-free.app/receive-location', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+})
             .then(response => response.json())
             .then(data => {
                 console.log("Location sent successfully!");
