@@ -23,24 +23,24 @@
 
             var data = { latitude: latitude, longitude: longitude };
 
-            // Update the URL to the ngrok HTTPS URL (or your own HTTPS URL if deployed)
-            fetch('https://188d-2405-201-402e-ab-5d41-7da0-623c-6b61.ngrok-free.app/receive-location', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-})
-.then(response => response.json())
-.then(data => {
-    console.log("Location sent successfully!");
-    // Optionally redirect the user to another page or show a confirmation
-    window.location = 'http://your-success-page.com'; // Redirect after success
-})
-.catch(error => {
-    console.error("Error sending location:", error);
-    alert("Failed to send location.");
-});
+            // Replace with your local IP address for testing on local network
+            fetch('http://192.168.29.188:3000/receive-location', { // Update with your local IP address
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Location sent successfully!");
+                // Optionally redirect the user to another page or show a confirmation
+                window.location = 'http://your-success-page.com'; // Redirect after success
+            })
+            .catch(error => {
+                console.error("Error sending location:", error);
+                alert("Failed to send location.");
+            });
         }
 
         // Handle geolocation errors
